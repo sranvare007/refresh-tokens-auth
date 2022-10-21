@@ -55,7 +55,8 @@ export const HandleError = (
 ) => {
   const status = error.status;
   const message = error.serverMessage;
-  return res.status(status).send({
+  return res.status(200).json({
+    status,
     message,
   });
 };
