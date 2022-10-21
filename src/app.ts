@@ -12,6 +12,11 @@ import cookieParser from "cookie-parser";
 
 dotenv.config();
 
+const corsOptions = {
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
+};
+
 const mongooseUrl = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.abzl5u0.mongodb.net/?retryWrites=true&w=majority`;
 mongoose
   .connect(mongooseUrl)
@@ -24,9 +29,18 @@ mongoose
 
 export const app: Application = express();
 
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Express {
+    interface Request {
+      user_id: string;
+    }
+  }
+}
+
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 
 expressWinston.requestWhitelist.push("body");
