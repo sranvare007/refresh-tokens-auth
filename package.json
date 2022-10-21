@@ -1,0 +1,31 @@
+{
+  "name": "typescript-node-starter",
+  "version": "1.0.0",
+  "description": "Starter repo for Nodejs projects using Typescript",
+  "main": "server.js",
+  "scripts": {
+    "start": "node -r ts-node/register -r tsconfig-paths/register ./dist/src/server.js",
+    "build": "tsc -p tsconfig.prod.json",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suraj Ranvare",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@types/node": "^18.8.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "express-winston": "^4.2.0",
+    "winston": "^3.8.2"
+  }
+}
